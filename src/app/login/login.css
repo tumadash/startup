@@ -1,0 +1,8 @@
+.login {
+    display: table;
+    height: 100%;
+}
+.login-form{
+    display: table-cell;
+    vertical-align: middle;
+}
