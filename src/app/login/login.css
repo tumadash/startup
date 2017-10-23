@@ -1,8 +1,56 @@
+@import url('https://fonts.googleapis.com/css?family=Open+Sans');
+@import url('https://fonts.googleapis.com/css?family=Exo+2&subset=cyrillic');
+.bac_grey{
+  width: 100%;
+  height: 100%;
+  background: #E6E6FA;
+}
+.caption_login{
+  background:#336766;
+  padding: 3%;
+  box-shadow: 0 8px 6px -6px #a59d9d;
+}
+h1{
+  font-size: 30px;
+  text-transform: uppercase;
+  font-family: 'Exo 2', sans-serif;
+  margin: 0;
+}
+.color_white{
+  color: #ffffff;
+}
 .login {
-    display: table;
+  box-shadow: 0 8px 6px -6px #a59d9d;
+  background: #f0f0ef;
     height: 100%;
+    margin-top:30%;
+  padding: 0;
 }
 .login-form{
-    display: table-cell;
-    vertical-align: middle;
+  padding: 5%;
+  width: 100%;
+}
+.width100{
+  width: 100%;
+}
+.buttom_enter, .buttom_enter:hover, .buttom_enter:active, .buttom_enter:focus, .buttom_enter:hover:active{
+  background: #336766;
+  color: #fff;
+  text-transform: uppercase;
+  width: 100%;
+  margin: auto;
+  box-shadow: inset 0 -4px 0 #275857, inset 0 -5px 2px #487b7a;;
+  font-family: 'Exo 2', sans-serif;
+
+}
+.input-group{
+  margin-bottom: 3%;
+}
+@media (max-width:768px){
+  h1{
+    font-size: 28px;
+    text-transform: uppercase;
+    font-family: 'Exo 2', sans-serif;
+    margin: 0;
+  }
 }
