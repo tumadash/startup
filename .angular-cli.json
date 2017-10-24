@@ -58,7 +58,6 @@
     "component": {}
   },
   "styles": [
-    "styles.css",
-    "../node_modules/font-awesome/css/font-awesome.css"
+    "styles.css"
   ]
 }
