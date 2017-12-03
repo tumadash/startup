@@ -7,6 +7,7 @@ import {FormsModule} from '@angular/forms';
 import {GeneralComponent} from './pages/general/general.component';
 import {AppRoutingModule} from './/app-routing.module';
 import { VoyageConditionComponent } from './components/voyage-condition/voyage-condition.component';
+import { AddVoyageComponent } from './components/add-voyage/add-voyage.component';
 
 
 @NgModule({
@@ -14,7 +15,8 @@ import { VoyageConditionComponent } from './components/voyage-condition/voyage-c
         AppComponent,
         LoginComponent,
         GeneralComponent,
-        VoyageConditionComponent
+        VoyageConditionComponent,
+        AddVoyageComponent
     ],
     imports: [
         BrowserModule,
