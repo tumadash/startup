@@ -1,1 +1,15 @@
-
+<div class="col-lg-2">
+    <button (click)="goGeneral()">На главную</button>
+    <div>Картинка</div>
+</div>
+<div class="col-lg-2">
+    <div class="dropdown">
+        <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Выбрать рейс
+        </button>
+        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+            <a *ngFor="let voyage of voyages">{{voyage.name}}</a>
+        </div>
+    </div>
+    <div>Логи</div>
+</div>
