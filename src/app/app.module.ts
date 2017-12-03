@@ -9,6 +9,7 @@ import {AppRoutingModule} from './/app-routing.module';
 import { VoyageConditionComponent } from './components/voyage-condition/voyage-condition.component';
 import { AddVoyageComponent } from './components/add-voyage/add-voyage.component';
 import { AddMotorShipComponent } from './components/add-motor-ship/add-motor-ship.component';
+import { AddPortComponent } from './components/add-port/add-port.component';
 
 
 @NgModule({
@@ -18,7 +19,8 @@ import { AddMotorShipComponent } from './components/add-motor-ship/add-motor-shi
         GeneralComponent,
         VoyageConditionComponent,
         AddVoyageComponent,
-        AddMotorShipComponent
+        AddMotorShipComponent,
+        AddPortComponent
     ],
     imports: [
         BrowserModule,
