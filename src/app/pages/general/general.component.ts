@@ -1,16 +1,22 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
+import { Location } from '@angular/common';
 
 @Component({
-  selector: 'app-general',
-  templateUrl: './general.component.html',
-  styleUrls: ['./general.component.css']
+    selector: 'app-general',
+    templateUrl: './general.component.html',
+    styleUrls: ['./general.component.css']
 })
 export class GeneralComponent implements OnInit {
 
-  constructor() { }
+    constructor(
+        private location: Location
+    ) {}
 
-  ngOnInit() {
-    console.log('hello');
-  }
+    ngOnInit() {
+    }
+
+    goBack(): void {
+        this.location.back();
+    }
 
 }
