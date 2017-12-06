@@ -1,0 +1,53 @@
+@import url('https://fonts.googleapis.com/css?family=Open+Sans');
+@import url('https://fonts.googleapis.com/css?family=Exo+2&subset=cyrillic');
+.bac_grey{
+  width: 100%;
+
+  background: #E6E6FA;
+}
+.img_kant{
+  padding: 3%;
+  border: 1px solid #336766;
+}
+.buttom_flight, .buttom_flight:hover, .buttom_flight:active, .buttom_flight:focus, .buttom_flight:hover:active{
+  background: #336766;
+  color: #fff;
+  text-transform: uppercase;
+  width: 100%;
+  margin: auto;
+  font-family: 'Exo 2', sans-serif;
+  border: none;
+  border-radius: 0;
+}
+.buttom_exit, .buttom_exit:hover, .buttom_exit:active, .buttom_exit:focus, .buttom_exit:hover:active{
+  background: #0c3d67;
+  color: #fff;
+  text-transform: uppercase;
+  width: 100%;
+  margin: auto;
+  font-family: 'Exo 2', sans-serif;
+  border: none;
+  border-radius: 0;
+}
+.no-padding{
+  padding: 0;
+}
+.no-margin{
+  margin: 0;
+}
+.blok_log{
+  height: 500px;
+  overflow: scroll;
+  background: hsla(179, 34%, 30%, 0.2);
+  margin-top: 10px;
+  padding: 2%;
+}
+.positin_blok{
+  padding-bottom: 1%;
+}
+.dropdown-menu{
+  width: 100%;
+}
+* {
+  box-sizing: border-box;
+}

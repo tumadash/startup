@@ -1,10 +1,73 @@
-<div (click)="logout()">Выйти</div>
-<div class="col-md-6">Картинка</div>
-<div class="col-md-6">
-    <nav>
-        <a routerLink="/general/voyage-condition">Состояние рейса</a>
-        <a routerLink="/general/add-voyage">Добавить рейс</a>
-        <a routerLink="/general/add-motor-ship">Добавить теплоход</a>
-        <a routerLink="/general/add-port">Добавить порт</a>
-    </nav>
+<div class="bac_grey">
+  <div class="container">
+    <div class="row positin_blok">
+      <div class="col-md-7">
+        <img src="assets\img\karabl.jpg" class="img-responsive img_kant">
+      </div>
+      <div class="col-md-5 sec_button">
+        <nav>
+          <a class="btn btn-default buttom_state" routerLink="/general/voyage-condition">Состояние рейса</a>
+          <a href="#" data-toggle="modal" data-target="#add-voyage" class="btn btn-default buttom_state">Добавить рейс</a>
+          <!--<a class="btn btn-default buttom_state" routerLink="/general/voyage-condition">Состояние рейса</a>-->
+          <!--<a class="btn btn-default buttom_state" routerLink="/general/add-voyage">Добавить рейс</a>-->
+          <a class="btn btn-default buttom_state" routerLink="/general/add-motor-ship">Добавить теплоход</a>
+          <a class="btn btn-default buttom_state" routerLink="/general/add-port">Добавить порт</a>
+          <button class="btn btn-default buttom_exit" (click)="logout()">Выйти</button>
+        </nav>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<div class="modal fade" id="add-voyage" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <a class="close-btn" title="Закрыть" href="javascript:void(0)" onclick="document.getElementById('envelope').style.display='none';document.getElementById('envelope').style.display='none'">X</a>
+      <div class="zakaz">
+        <h1>Добавить рейс</h1>
+      </div>
+      <form >
+
+
+        <div class="row">
+          <div class="col-md-12">
+            <div class="modal-body">
+              <div class="form-group">
+                <input type="text" class="form-control" placeholder="Имя *" id="name" name="name" required="" data-validation-required-message="Please enter your name.">
+                <p class="help-block text-danger"></p>
+              </div>
+              <div class="form-group">
+                <input type="text" class="form-control" required="" placeholder="Email *" id="email" name="email" data-validation-required-message="Please enter your phone number.">
+                <p class="help-block text-danger"></p>
+              </div>
+              <div class="form-group">
+                <textarea class="form-control" name="masseg" placeholder="Сообщение" rows="3"></textarea>
+                <p class="help-block text-danger"></p>
+              </div>
+              <div class="form-group">
+
+                  <label class="font_size18">
+                    <input type="checkbox" name="checkbox" value="Я не робот" required="">Я не робот</label>
+
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-3"></div>
+        </div>
+        <div class="row">
+          <div class="clearfix"></div>
+          <div class="col-lg-12 text-center">
+            <div id="success"></div>
+            <div class="modal-footer">
+              <button type="submit" class="btn btn-xl botton_form">Отправить</button>
+              <button type="button" class="btn btn-default botton_form" data-dismiss="modal">Закрыть</button>
+            </div>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
 </div>

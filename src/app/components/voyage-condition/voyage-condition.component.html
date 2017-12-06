@@ -1,15 +1,33 @@
-<div class="col-lg-2">
-    <button (click)="goGeneral()">На главную</button>
-    <div>Картинка</div>
-</div>
-<div class="col-lg-2">
-    <div class="dropdown">
-        <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            Выбрать рейс
-        </button>
-        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-            <a *ngFor="let voyage of voyages">{{voyage.name}}</a>
+<section class="bac_grey">
+  <div class="container">
+    <div class="row positin_blok">
+      <div class="col-lg-5">
+
+        <img src="assets\img\map.jpg" class="img-responsive img_kant">
+      </div>
+      <div class="col-lg-7">
+        <div class="row no-margin">
+          <div class="col-lg-8 no-padding">
+            <div class="dropdown">
+              <button class="btn btn-secondary dropdown-toggle buttom_flight" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Выбрать рейс
+                <span class="caret"></span>
+              </button>
+              <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                <li><a *ngFor="let voyage of voyages">{{voyage.name}}</a></li>
+              </ul>
+            </div>
+          </div>
+          <div class="col-lg-4 no-padding">
+            <button class="btn btn-default buttom_exit" (click)="logout()">Выйти</button>
+          </div>
         </div>
+        <div class="blok_log">
+
+          Логи<br>Логи<br>Логи<br>Логи<br>Логи<br>Логи<br>Логи<br>Логи<br>Логи<br>Логи<br>Логи<br>Логи<br>Логи<br>Логи<br>Логи<br>Логи<br>Логи<br>
+          Логи<br>Логи<br>Логи<br>Логи<br>Логи<br>Логи<br>Логи<br>Логи<br>Логи<br>Логи<br>Логи<br>Логи<br>Логи<br>Логи<br>
+        </div>
+      </div>
     </div>
-    <div>Логи</div>
-</div>
+  </div>
+</section>
