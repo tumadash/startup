@@ -12,6 +12,8 @@ import { AddMotorShipComponent } from './components/add-motor-ship/add-motor-shi
 import { AddPortComponent } from './components/add-port/add-port.component';
 import { ServiceComponent } from './components/service/service.component';
 import {HttpClientModule} from "@angular/common/http";
+import {NgbModule} from "@ng-bootstrap/ng-bootstrap";
+
 
 
 @NgModule({
@@ -28,7 +30,8 @@ import {HttpClientModule} from "@angular/common/http";
         BrowserModule,
         FormsModule,
         AppRoutingModule,
-      HttpClientModule
+      HttpClientModule,
+        NgbModule.forRoot()
     ],
     providers: [ServiceComponent],
     bootstrap: [AppComponent]
