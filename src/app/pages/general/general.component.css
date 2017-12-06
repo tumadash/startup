@@ -34,4 +34,58 @@
   padding:8% 0;
   text-align: center;
 }
+.caption_modal_h{
+  background:#336766;
+  padding: 3%;
+  box-shadow: 0 8px 6px -6px #a59d9d;
+}
+.caption_modal_h h1{
+  text-transform: uppercase;
+  font-family: 'Exo 2', sans-serif;
+  color: #ffffff;
+  text-align: center;
+  margin: 0;
+}
+button.close{
+  color: #ffffff;
+  opacity: .8;
+  padding: 0 1%;
+}
+.no-padding{
+  padding: 0;
+}
+.no-margin{
+  margin: 0;
+}
+.area{
+  padding: 5%;
+}
+.buttom_flight, .buttom_flight:hover, .buttom_flight:active, .buttom_flight:focus, .buttom_flight:hover:active{
+  background: #336766;
+  color: #fff;
+  text-transform: uppercase;
+  width: 100%;
+  margin: auto;
+  font-family: 'Exo 2', sans-serif;
+  border: none;
+  border-radius: 0;
 
+}
+.mar_top20{
+  margin-top: 20px;
+}
+.btn_ok,.btn_ok:hover, .btn_ok:active, .btn_ok:focus, .btn_ok:hover:active{
+  background: #336766;
+  border: 1px solid #336766;
+  color: #ffffff;
+  width: 20%;
+}
+.btn_cancel, .btn_cancel:hover, .btn_cancel:active, .btn_cancel:focus, .btn_cancel:hover:active {
+  background: #0c3d67;
+  border: 1px solid #0c3d67;
+  color: #ffffff;
+  width: 20%;
+}
+.dropdown-menu{
+  width: 100%;
+}
