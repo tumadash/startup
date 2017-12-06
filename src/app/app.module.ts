@@ -10,6 +10,8 @@ import { VoyageConditionComponent } from './components/voyage-condition/voyage-c
 import { AddVoyageComponent } from './components/add-voyage/add-voyage.component';
 import { AddMotorShipComponent } from './components/add-motor-ship/add-motor-ship.component';
 import { AddPortComponent } from './components/add-port/add-port.component';
+import { ServiceComponent } from './components/service/service.component';
+import {HttpClientModule} from "@angular/common/http";
 
 
 @NgModule({
@@ -25,9 +27,10 @@ import { AddPortComponent } from './components/add-port/add-port.component';
     imports: [
         BrowserModule,
         FormsModule,
-        AppRoutingModule
+        AppRoutingModule,
+      HttpClientModule
     ],
-    providers: [],
+    providers: [ServiceComponent],
     bootstrap: [AppComponent]
 })
 export class AppModule {
