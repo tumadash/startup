@@ -7,6 +7,9 @@
       <div class="col-md-5 sec_button">
         <nav>
           <a class="btn btn-default buttom_state" routerLink="/general/voyage-condition">Состояние рейса</a>
+          <a (click)="style.show()" class="btn  buttom_state transition3" mdbRippleRadius>Добавить рейс</a>
+          <!--<a class="btn btn-default buttom_state" routerLink="/general/voyage-condition">Состояние рейса</a>-->
+          <!--<a class="btn btn-default buttom_state" routerLink="/general/add-voyage">Добавить рейс</a>-->
           <a (click)="style.show()" class="btn btn-default buttom_state">Добавить рейс</a>
           <a class="btn btn-default buttom_state" routerLink="/general/add-motor-ship">Добавить теплоход</a>
           <a class="btn btn-default buttom_state" routerLink="/general/add-port">Добавить порт</a>
@@ -28,41 +31,41 @@
         <h1>Добавить рейс</h1>
       </div>
       <div class="modal-body">
-        <div class="dropdown" dropdown>
-          <button dropdownToggle class="buttom_state btn dropdown-toggle waves-light " type="button" mdbRippleRadius>
-            Место отправления
-          </button>
-          <div class="dropdown-menu dropdown-primary">
-            <a *ngFor="let port of ports">
-              {{port.name}}
-            </a>
-        </div>
-        </div>
-        <div class="dropdown" dropdown>
-          <button dropdownToggle class="btn  dropdown-toggle waves-light buttom_state" type="button" mdbRippleRadius>
-            Место прибытия
-          </button>
-          <div class="dropdown-menu dropdown-primary">
-            <a *ngFor="let port of ports">
-              {{port.name}}
-            </a>
-          </div>
-        </div>
-        <div class="dropdown" dropdown>
-          <button dropdownToggle class="btn dropdown-toggle waves-light buttom_state" type="button" mdbRippleRadius>
-            Выбрать теплоход
-          </button>
-          <div class="dropdown-menu dropdown-primary">
-            <a *ngFor="let port of ships">
-              {{ship.name}}
-            </a>
-          </div>
-        </div>
-        <input class="form-control  mar_top20" type="text" placeholder="Введите количество топлива">
+            <div class="dropdown mar_top20" dropdown>
+              <button dropdownToggle class="buttom_flight btn dropdown-toggle waves-light " type="button" mdbRippleRadius>
+                Место отправления
+              </button>
+              <div class="dropdown-menu dropdown-primary pozition_dropdown">
+                <a *ngFor="let port of ports">
+                  {{port.name}}
+                </a>
+              </div>
+            </div>
+            <div class="dropdown mar_top20" dropdown>
+              <button dropdownToggle class="btn  dropdown-toggle waves-light buttom_flight" type="button" mdbRippleRadius>
+                Место прибытия
+              </button>
+              <div class="dropdown-menu dropdown-primary pozition_dropdown">
+                <a *ngFor="let port of ports">
+                  {{port.name}}
+                </a>
+              </div>
+            </div>
+            <div class="dropdown mar_top20" dropdown>
+              <button dropdownToggle class="btn dropdown-toggle waves-light buttom_flight " type="button" mdbRippleRadius>
+                Выбрать теплоход
+              </button>
+              <div class="dropdown-menu dropdown-primary pozition_dropdown">
+                <a *ngFor="let port of ships">
+                  {{ship.name}}
+                </a>
+              </div>
+            </div>
+            <input class="form-control  mar_top20" type="number" placeholder="Введите количество топлива">
       </div>
       <div class="modal-footer justify-content-center">
-        <a type="button" class="btn btn-primary-modal waves-light" mdbRippleRadius (click)="this.submit()">Ок</a>
-        <a type="button" class="btn btn-outline-secondary-modal" data-dismiss="modal" (click)="style.hide()"
+        <a type="button" class="btn  waves-light btn_ok" mdbRippleRadius (click)="this.submit()">Ок</a>
+        <a type="button" class="btn btn_cancel" data-dismiss="modal" (click)="style.hide()"
            mdbRippleRadius>Отмена</a>
       </div>
     </div>
