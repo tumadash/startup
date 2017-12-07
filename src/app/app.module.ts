@@ -7,9 +7,6 @@ import {FormsModule} from '@angular/forms';
 import {GeneralComponent} from './pages/general/general.component';
 import {AppRoutingModule} from './/app-routing.module';
 import {VoyageConditionComponent} from './components/voyage-condition/voyage-condition.component';
-import {AddVoyageComponent} from './components/add-voyage/add-voyage.component';
-import {AddMotorShipComponent} from './components/add-motor-ship/add-motor-ship.component';
-import {AddPortComponent} from './components/add-port/add-port.component';
 import {ServiceComponent} from './components/service/service.component';
 import {HttpClientModule} from "@angular/common/http";
 import { MDBBootstrapModule } from 'angular-bootstrap-md';
@@ -20,9 +17,6 @@ import { RippleModule } from 'angular-bootstrap-md/ripple';
     LoginComponent,
     GeneralComponent,
     VoyageConditionComponent,
-    AddVoyageComponent,
-    AddMotorShipComponent,
-    AddPortComponent
   ],
   imports: [
     BrowserModule,

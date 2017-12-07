@@ -8,8 +8,6 @@
         <nav>
           <a class="btn btn-default buttom_state" routerLink="/general/voyage-condition">Состояние рейса</a>
           <a (click)="style.show()" class="btn btn-default buttom_state">Добавить рейс</a>
-          <!--<a class="btn btn-default buttom_state" routerLink="/general/voyage-condition">Состояние рейса</a>-->
-          <!--<a class="btn btn-default buttom_state" routerLink="/general/add-voyage">Добавить рейс</a>-->
           <a class="btn btn-default buttom_state" routerLink="/general/add-motor-ship">Добавить теплоход</a>
           <a class="btn btn-default buttom_state" routerLink="/general/add-port">Добавить порт</a>
           <button class="btn btn-default buttom_exit" (click)="logout()">Выйти</button>
@@ -20,53 +18,50 @@
 </div>
 
 <div mdbModal #style="mdb-modal" class="modal fade" id="centralModalSuccess" tabindex="-1" role="dialog"
-     aria-labelledby="myModalLabel" aria-hidden="true">
+     aria-labelledby="myModalLabel" aria-hidden="true" >
   <div class="modal-dialog modal-notify modal-success" role="document">
     <div class="modal-content">
-        <div class="caption_modal_h">
-          <button type="button" class="close" data-dismiss="modal" aria-label="Close" (click)="style.hide()">
-            <span aria-hidden="true" class="white-text">×</span>
-          </button>
-          <h1>Добавить рейс</h1>
-        </div>
+      <div class="caption_modal_h">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close" (click)="style.hide()">
+          <span aria-hidden="true" class="white-text">×</span>
+        </button>
+        <h1>Добавить рейс</h1>
+      </div>
       <div class="modal-body">
-            <div class="dropdown" dropdown>
-              <button dropdownToggle class="buttom_state btn dropdown-toggle waves-light " type="button" mdbRippleRadius>
-                Место отправления
-              </button>
-              <div class="dropdown-menu dropdown-primary">
-                <a class="dropdown-item" href="#">Action</a>
-                <a class="dropdown-item" href="#">Another action</a>
-                <a class="dropdown-item" href="#">Something else here</a>
-                <a class="dropdown-item" href="#">Something else here</a>
-              </div>
-            </div>
-            <div class="dropdown" dropdown>
-              <button dropdownToggle class="btn  dropdown-toggle waves-light buttom_state" type="button" mdbRippleRadius>
-                Место прибытия
-              </button>
-              <div class="dropdown-menu dropdown-primary">
-                <a class="dropdown-item" href="#">Action</a>
-                <a class="dropdown-item" href="#">Another action</a>
-                <a class="dropdown-item" href="#">Something else here</a>
-                <a class="dropdown-item" href="#">Something else here</a>
-              </div>
-            </div>
-            <div class="dropdown" dropdown>
-              <button dropdownToggle class="btn dropdown-toggle waves-light buttom_state" type="button" mdbRippleRadius>
-                Выбрать теплоход
-              </button>
-              <div class="dropdown-menu dropdown-primary">
-                <a class="dropdown-item" href="#">Action</a>
-                <a class="dropdown-item" href="#">Another action</a>
-                <a class="dropdown-item" href="#">Something else here</a>
-                <a class="dropdown-item" href="#">Something else here</a>
-              </div>
-            </div>
-            <input class="form-control  mar_top20" type="text" placeholder="Введите количество топлива">
+        <div class="dropdown" dropdown>
+          <button dropdownToggle class="buttom_state btn dropdown-toggle waves-light " type="button" mdbRippleRadius>
+            Место отправления
+          </button>
+          <div class="dropdown-menu dropdown-primary">
+            <a *ngFor="let port of ports">
+              {{port.name}}
+            </a>
+        </div>
+        </div>
+        <div class="dropdown" dropdown>
+          <button dropdownToggle class="btn  dropdown-toggle waves-light buttom_state" type="button" mdbRippleRadius>
+            Место прибытия
+          </button>
+          <div class="dropdown-menu dropdown-primary">
+            <a *ngFor="let port of ports">
+              {{port.name}}
+            </a>
+          </div>
+        </div>
+        <div class="dropdown" dropdown>
+          <button dropdownToggle class="btn dropdown-toggle waves-light buttom_state" type="button" mdbRippleRadius>
+            Выбрать теплоход
+          </button>
+          <div class="dropdown-menu dropdown-primary">
+            <a *ngFor="let port of ships">
+              {{ship.name}}
+            </a>
+          </div>
+        </div>
+        <input class="form-control  mar_top20" type="text" placeholder="Введите количество топлива">
       </div>
       <div class="modal-footer justify-content-center">
-        <a type="button" class="btn btn-primary-modal waves-light" mdbRippleRadius (click)="style.hide()">Ок</a>
+        <a type="button" class="btn btn-primary-modal waves-light" mdbRippleRadius (click)="this.submit()">Ок</a>
         <a type="button" class="btn btn-outline-secondary-modal" data-dismiss="modal" (click)="style.hide()"
            mdbRippleRadius>Отмена</a>
       </div>
