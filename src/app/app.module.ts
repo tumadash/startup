@@ -12,8 +12,8 @@ import {AddMotorShipComponent} from './components/add-motor-ship/add-motor-ship.
 import {AddPortComponent} from './components/add-port/add-port.component';
 import {ServiceComponent} from './components/service/service.component';
 import {HttpClientModule} from "@angular/common/http";
-import {MDBBootstrapModule} from 'angular-bootstrap-md';
-
+import { MDBBootstrapModule } from 'angular-bootstrap-md';
+import { RippleModule } from 'angular-bootstrap-md/ripple';
 @NgModule({
   declarations: [
     AppComponent,
@@ -29,7 +29,8 @@ import {MDBBootstrapModule} from 'angular-bootstrap-md';
     FormsModule,
     AppRoutingModule,
     HttpClientModule,
-    MDBBootstrapModule.forRoot()
+    MDBBootstrapModule.forRoot(),
+    RippleModule.forRoot()
   ],
   schemas: [NO_ERRORS_SCHEMA],
   providers: [ServiceComponent],

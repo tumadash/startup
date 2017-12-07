@@ -30,41 +30,40 @@
           <h1>Добавить рейс</h1>
         </div>
       <div class="modal-body">
-        <div class="row no-margin">
-          <div class="area">
-            <div class="dropdown">
-              <button class="btn btn-secondary dropdown-toggle buttom_flight " type="button" id="dropdownMenuButton"
-                      data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <div class="dropdown" dropdown>
+              <button dropdownToggle class="buttom_state btn dropdown-toggle waves-light " type="button" mdbRippleRadius>
                 Место отправления
-                <span class="caret"></span>
               </button>
-              <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                <li><a></a></li>
-              </ul>
+              <div class="dropdown-menu dropdown-primary">
+                <a class="dropdown-item" href="#">Action</a>
+                <a class="dropdown-item" href="#">Another action</a>
+                <a class="dropdown-item" href="#">Something else here</a>
+                <a class="dropdown-item" href="#">Something else here</a>
+              </div>
             </div>
-            <div class="dropdown  mar_top20">
-              <button class="btn btn-secondary dropdown-toggle buttom_flight" type="button" id="dropdownMenuButton"
-                      data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <div class="dropdown" dropdown>
+              <button dropdownToggle class="btn  dropdown-toggle waves-light buttom_state" type="button" mdbRippleRadius>
                 Место прибытия
-                <span class="caret"></span>
               </button>
-              <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                <li><a></a></li>
-              </ul>
+              <div class="dropdown-menu dropdown-primary">
+                <a class="dropdown-item" href="#">Action</a>
+                <a class="dropdown-item" href="#">Another action</a>
+                <a class="dropdown-item" href="#">Something else here</a>
+                <a class="dropdown-item" href="#">Something else here</a>
+              </div>
             </div>
-            <div class="dropdown  mar_top20">
-              <button class="btn btn-secondary dropdown-toggle buttom_flight" type="button" id="dropdownMenuButton"
-                      data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <div class="dropdown" dropdown>
+              <button dropdownToggle class="btn dropdown-toggle waves-light buttom_state" type="button" mdbRippleRadius>
                 Выбрать теплоход
-                <span class="caret"></span>
               </button>
-              <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                <li><a></a></li>
-              </ul>
+              <div class="dropdown-menu dropdown-primary">
+                <a class="dropdown-item" href="#">Action</a>
+                <a class="dropdown-item" href="#">Another action</a>
+                <a class="dropdown-item" href="#">Something else here</a>
+                <a class="dropdown-item" href="#">Something else here</a>
+              </div>
             </div>
             <input class="form-control  mar_top20" type="text" placeholder="Введите количество топлива">
-          </div>
-        </div>
       </div>
       <div class="modal-footer justify-content-center">
         <a type="button" class="btn btn-primary-modal waves-light" mdbRippleRadius (click)="style.hide()">Ок</a>
