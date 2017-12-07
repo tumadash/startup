@@ -1,7 +1,11 @@
+import {Ship} from "./ship";
+import {Port} from "./port";
 export class Voyage {
-  currentLatitude: number;
-  currentLongitude: number;
+  amountOfFuel: number;
+  info: string[];
   id: number;
-  name: string;
+  routePoints: Port[];
+  ship: Ship;
+
 
 }

@@ -8,8 +8,8 @@
         <nav>
           <a class="btn btn-default buttom_state" routerLink="/general/voyage-condition">Состояние рейса</a>
           <a (click)="style.show()" class="btn  buttom_state transition3" mdbRippleRadius>Добавить рейс</a>
-          <a class="btn btn-default buttom_state" routerLink="/general/add-motor-ship">Добавить теплоход</a>
-          <a class="btn btn-default buttom_state" routerLink="/general/add-port">Добавить порт</a>
+          <a (click)="shipW.show()" class="btn  buttom_state transition3" mdbRippleRadius>Добавить теплоход</a>
+          <a (click)="portW.show()" class="btn  buttom_state transition3" mdbRippleRadius>Добавить порт</a>
           <button class="btn btn-default buttom_exit" (click)="logout()">Выйти</button>
         </nav>
       </div>
@@ -18,7 +18,7 @@
 </div>
 
 <div mdbModal #style="mdb-modal" class="modal fade" id="centralModalSuccess" tabindex="-1" role="dialog"
-     aria-labelledby="myModalLabel" aria-hidden="true" >
+     aria-labelledby="myModalLabel" aria-hidden="true">
   <div class="modal-dialog modal-notify modal-success" role="document">
     <div class="modal-content">
       <div class="caption_modal_h">
@@ -28,37 +28,38 @@
         <h1>Добавить рейс</h1>
       </div>
       <div class="modal-body">
-            <div class="dropdown mar_top20" dropdown>
-              <button dropdownToggle class="buttom_flight btn dropdown-toggle waves-light " type="button" mdbRippleRadius>
-                Место отправления
-              </button>
-              <div class="dropdown-menu dropdown-primary pozition_dropdown">
-                <a *ngFor="let port of ports">
-                  {{port.name}}
-                </a>
-              </div>
-            </div>
-            <div class="dropdown mar_top20" dropdown>
-              <button dropdownToggle class="btn  dropdown-toggle waves-light buttom_flight" type="button" mdbRippleRadius>
-                Место прибытия
-              </button>
-              <div class="dropdown-menu dropdown-primary pozition_dropdown">
-                <a *ngFor="let port of ports">
-                  {{port.name}}
-                </a>
-              </div>
-            </div>
-            <div class="dropdown mar_top20" dropdown>
-              <button dropdownToggle class="btn dropdown-toggle waves-light buttom_flight " type="button" mdbRippleRadius>
-                Выбрать теплоход
-              </button>
-              <div class="dropdown-menu dropdown-primary pozition_dropdown">
-                <a *ngFor="let port of ships">
-                  {{ship.name}}
-                </a>
-              </div>
-            </div>
-            <input class="form-control  mar_top20" type="number" placeholder="Введите количество топлива">
+        <div class="dropdown mar_top20" dropdown>
+          <button dropdownToggle class="buttom_flight btn dropdown-toggle waves-light " type="button" mdbRippleRadius [(ngModel)]="this.selectPortIn"  ngDefaultControl>
+            Место отправления
+          </button>
+          <div class="dropdown-menu dropdown-primary pozition_dropdown">
+            <a *ngFor="let port of ports">
+              {{port.name}}
+            </a>
+          </div>
+        </div>
+        <div class="dropdown mar_top20" dropdown>
+          <button dropdownToggle class="btn  dropdown-toggle waves-light buttom_flight" type="button" mdbRippleRadius [(ngModel)]="this.selectPortOut"  ngDefaultControl>
+            Место прибытия
+          </button>
+          <div class="dropdown-menu dropdown-primary pozition_dropdown">
+            <a *ngFor="let port of ports">
+              {{port.name}}
+            </a>
+          </div>
+        </div>
+        <div class="dropdown mar_top20" dropdown>
+          <button dropdownToggle class="btn dropdown-toggle waves-light buttom_flight " type="button" mdbRippleRadius [(ngModel)]="this.selectShip"  ngDefaultControl>
+            Выбрать теплоход
+          </button>
+          <div class="dropdown-menu dropdown-primary pozition_dropdown">
+            <a *ngFor="let ship of ships">
+              {{ship.name}}
+            </a>
+          </div>
+        </div>
+        <input class="form-control  mar_top20" [(ngModel)]="this.amountOfFuel" ngDefaultControl type="number"
+               placeholder="Введите количество топлива">
       </div>
       <div class="modal-footer justify-content-center">
         <a type="button" class="btn  waves-light btn_ok" mdbRippleRadius (click)="this.submit()">Ок</a>
@@ -68,3 +69,54 @@
     </div>
   </div>
 </div>
+<div mdbModal #shipW="mdb-modal" class="modal fade" tabindex="-1" role="dialog"
+     aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-notify modal-success" role="document">
+    <div class="modal-content">
+      <div class="caption_modal_h">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close" (click)="shipW.hide()">
+          <span aria-hidden="true" class="white-text">×</span>
+        </button>
+        <h1>Добавить теплоход</h1>
+      </div>
+      <div class="modal-body">
+        <input class="form-control  mar_top20" type="text" placeholder="Введите название" [(ngModel)]="this.nameOfShip"
+               ngDefaultControl>
+      </div>
+      <div class="modal-footer justify-content-center">
+        <a type="button" class="btn  waves-light btn_ok" mdbRippleRadius (click)="this.addShip()">Ок</a>
+        <a type="button" class="btn btn_cancel" data-dismiss="modal" (click)="shipW.hide()"
+           mdbRippleRadius>Отмена</a>
+      </div>
+    </div>
+  </div>
+</div>
+<div mdbModal #portW="mdb-modal" class="modal fade" tabindex="-1" role="dialog"
+     aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-notify modal-success" role="document">
+    <div class="modal-content">
+      <div class="caption_modal_h">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close" (click)="portW.hide()">
+          <span aria-hidden="true" class="white-text">×</span>
+        </button>
+        <h1>Добавить порт</h1>
+      </div>
+      <div class="modal-body">
+        <input class="form-control  mar_top20" type="text" placeholder="Введите название"
+        [(ngModel)]="this.nameOfPort"
+        ngDefaultControl>
+        <input class="form-control  mar_top20" type="number" placeholder="Введите широту" [(ngModel)]="this.latitude"
+        ngDefaultControl>
+        <input class="form-control  mar_top20" type="number" placeholder="Введите долготу"
+        [(ngModel)]="this.longitude"
+        ngDefaultControl>
+      </div>
+      <div class="modal-footer justify-content-center">
+        <a type="button" class="btn  waves-light btn_ok" mdbRippleRadius (click)="this.addPort()">Ок</a>
+        <a type="button" class="btn btn_cancel" data-dismiss="modal" (click)="portW.hide()"
+           mdbRippleRadius>Отмена</a>
+      </div>
+    </div>
+  </div>
+</div>
+

@@ -16,21 +16,11 @@ export class VoyageConditionComponent implements OnInit {
   }
 
   voyages: Voyage[];
-  ship: Ship = {
-    amountOfFuel: 1,
-    id: 3,
-    info: 'sdfg',
-    name: 'name',
-  };
+
 
   ngOnInit() {
     this.serviceComponent.getVoyages()
       .subscribe(voyages => this.voyages = voyages);
-    this.serviceComponent.getPorts()
-      .subscribe(voyages => console.log(voyages));
-    this.serviceComponent.getShips()
-      .subscribe(voyages => console.log(voyages));
-    this.serviceComponent.addShip(this.ship);
   }
 
   goGeneral(): void {
