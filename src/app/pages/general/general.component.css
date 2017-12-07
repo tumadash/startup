@@ -2,25 +2,33 @@
 @import url('https://fonts.googleapis.com/css?family=Exo+2&subset=cyrillic');
 .bac_grey{
   width: 100%;
-  height: 100%;
   background: #E6E6FA;
 }
-.buttom_exit, .buttom_exit:hover, .buttom_exit:active, .buttom_exit:focus, .buttom_exit:hover:active{
-  background: #0c3d67;
+.buttom_exit{
+  background-color: #0c3d67!important;
   color: #fff;
   text-transform: uppercase;
   width: 60%;
   margin: auto;
   font-family: 'Exo 2', sans-serif;
+  font-size: 16px;
 }
-.buttom_state, .buttom_state:hover, .buttom_state:active, .buttom_state:focus, .buttom_state:hover:active{
-  background: #336766;
+.buttom_state{
+  background-color: #336766 !important;
   color: #fff;
   text-transform: uppercase;
   width: 60%;
   margin: auto;
   font-family: 'Exo 2', sans-serif;
   margin-bottom: 20px;
+  font-size: 16px;
+}
+.buttom_state:hover, .buttom_state:active, .buttom_state:focus, .buttom_state:hover:active{
+  background: linear-gradient(to bottom, #6ca5a3, #336766);
+}
+
+.buttom_exit:hover, .buttom_exit:active, .buttom_exit:focus, .buttom_exit:hover:active{
+  background: linear-gradient(to bottom, #427cad, #0c3d67);
 }
 .positin_blok{
   padding: 5% 0;
@@ -69,23 +77,36 @@ button.close{
   font-family: 'Exo 2', sans-serif;
   border: none;
   border-radius: 0;
+  font-size: 16px;
 
+}
+.pozition_dropdown{
+  left: -1.3%;
+  top: -22%;
+}
+.form-control{
+  font-size: 16px;
 }
 .mar_top20{
   margin-top: 20px;
 }
 .btn_ok,.btn_ok:hover, .btn_ok:active, .btn_ok:focus, .btn_ok:hover:active{
-  background: #336766;
+  background-color: #336766 !important;
   border: 1px solid #336766;
   color: #ffffff;
-  width: 20%;
+  width: 30%!important;
+  font-size: 16px;
 }
 .btn_cancel, .btn_cancel:hover, .btn_cancel:active, .btn_cancel:focus, .btn_cancel:hover:active {
-  background: #0c3d67;
+  background-color: #0c3d67;
   border: 1px solid #0c3d67;
-  color: #ffffff;
-  width: 20%;
+  color: #ffffff !important;
+  width: 30% !important;
+  font-size: 16px;
+  margin: 0;
+  margin-left: 5px;
 }
+
 .dropdown-menu{
   width: 100%;
 }

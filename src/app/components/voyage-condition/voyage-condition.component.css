@@ -10,7 +10,7 @@
   border: 1px solid #336766;
 }
 .buttom_flight, .buttom_flight:hover, .buttom_flight:active, .buttom_flight:focus, .buttom_flight:hover:active{
-  background: #336766;
+  background-color: #336766!important;
   color: #fff;
   text-transform: uppercase;
   width: 100%;
@@ -18,9 +18,10 @@
   font-family: 'Exo 2', sans-serif;
   border: none;
   border-radius: 0;
+  font-size: 16px;
 }
-.buttom_exit, .buttom_exit:hover, .buttom_exit:active, .buttom_exit:focus, .buttom_exit:hover:active{
-  background: #0c3d67;
+.buttom_exit{
+  background-color: #0c3d67!important;
   color: #fff;
   text-transform: uppercase;
   width: 100%;
@@ -28,6 +29,10 @@
   font-family: 'Exo 2', sans-serif;
   border: none;
   border-radius: 0;
+  font-size: 16px;
+}
+.buttom_exit:hover, .buttom_exit:active, .buttom_exit:focus, .buttom_exit:hover:active{
+  background: linear-gradient(to bottom, #427cad, #0c3d67);
 }
 .no-padding{
   padding: 0;
