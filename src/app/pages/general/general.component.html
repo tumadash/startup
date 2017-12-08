@@ -28,36 +28,26 @@
         <h1>Добавить рейс</h1>
       </div>
       <div class="modal-body">
-        <div class="dropdown mar_top20" dropdown>
-          <button dropdownToggle class="buttom_flight btn dropdown-toggle waves-light " type="button" mdbRippleRadius [(ngModel)]="this.selectPortIn"  ngDefaultControl>
-            Место отправления
-          </button>
-          <div class="dropdown-menu dropdown-primary pozition_dropdown">
-            <a *ngFor="let port of ports">
-              {{port.name}}
-            </a>
-          </div>
-        </div>
-        <div class="dropdown mar_top20" dropdown>
-          <button dropdownToggle class="btn  dropdown-toggle waves-light buttom_flight" type="button" mdbRippleRadius [(ngModel)]="this.selectPortOut"  ngDefaultControl>
-            Место прибытия
-          </button>
-          <div class="dropdown-menu dropdown-primary pozition_dropdown">
-            <a *ngFor="let port of ports">
-              {{port.name}}
-            </a>
-          </div>
-        </div>
-        <div class="dropdown mar_top20" dropdown>
-          <button dropdownToggle class="btn dropdown-toggle waves-light buttom_flight " type="button" mdbRippleRadius [(ngModel)]="this.selectShip"  ngDefaultControl>
-            Выбрать теплоход
-          </button>
-          <div class="dropdown-menu dropdown-primary pozition_dropdown">
-            <a *ngFor="let ship of ships">
-              {{ship.name}}
-            </a>
-          </div>
-        </div>
+        <label>Место отправления</label>
+        <select class="dropdown-toggle waves-light buttom_flight" mdbRippleRadius [(ngModel)]="this.selectPortIn" >
+          <option [value]="port.id" *ngFor="let port of ports">
+            {{port.name}}
+          </option>
+        </select>
+        <label>Место прибытия</label>
+        <select class="dropdown-toggle waves-light buttom_flight" mdbRippleRadius [(ngModel)]="this.selectPortOut" >
+          <option [value]="port.id" *ngFor="let port of ports">
+            {{port.name}}
+          </option>
+        </select>
+        <label>Выбрать теплоход</label>
+        <select class="dropdown-toggle waves-light buttom_flight" mdbRippleRadius [(ngModel)]="this.selectShip" >
+          <option [value]="ship.id" *ngFor="let ship of ships">
+            {{ship.name}}
+          </option>
+        </select>
+        <input class="form-control  mar_top20" [(ngModel)]="this.nameVoyage" ngDefaultControl type="text"
+               placeholder="Введите название">
         <input class="form-control  mar_top20" [(ngModel)]="this.amountOfFuel" ngDefaultControl type="number"
                placeholder="Введите количество топлива">
       </div>

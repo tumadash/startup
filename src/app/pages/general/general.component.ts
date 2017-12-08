@@ -5,6 +5,8 @@ import {ServiceComponent} from "../../components/service/service.component";
 import {Voyage} from "../../entity/voyage";
 import {Port} from "../../entity/port";
 import {Ship} from "../../entity/ship";
+declare var jquery:any;
+declare var $ :any;
 
 @Component({
   selector: 'app-general',
@@ -20,6 +22,7 @@ export class GeneralComponent implements OnInit {
               private router: Router,
               private serviceComponent: ServiceComponent) {
   }
+  optionsSelect: Array<any>;
 
   voyages: Voyage[];
   ports: Port[];
@@ -33,10 +36,11 @@ export class GeneralComponent implements OnInit {
   latitude: number;
   longitude: number;
 
-  selectPortIn: Port;
-  selectPortOut: Port;
-  selectShip: Ship;
+  selectPortIn: number;
+  selectPortOut: number;
+  selectShip: number;
   amountOfFuel: number;
+  nameVoyage: string;
 
   ngOnInit() {
     this.serviceComponent.getVoyages()
@@ -54,16 +58,19 @@ export class GeneralComponent implements OnInit {
   submit(): void {
     let voyage = new Voyage;
     voyage.amountOfFuel = this.amountOfFuel;
-    voyage.routePoints = [this.selectPortIn, this.selectPortOut];
-    voyage.ship = this.selectShip;
+    voyage.fromId = this.selectPortIn;
+    voyage.toId =  this.selectPortOut;
+    voyage.shipId = this.selectShip;
+    voyage.name = this.nameVoyage;
 
     this.style.hide();
     this.serviceComponent.addVoyage(voyage)
       .subscribe(e => {
         this.amountOfFuel = null;
-        this.selectPortIn = new Port();
-        this.selectPortOut = new Port();
-        this.selectShip = new Ship();
+        this.selectPortIn = null;
+        this.selectPortOut = null;
+        this.selectShip = null;
+        this.nameVoyage = null;
 
         this.serviceComponent.getVoyages()
           .subscribe(voyages => this.voyages = voyages)
