@@ -11,6 +11,16 @@
     height:100vh;
   }
 }
+.style_lable{
+  position: absolute;
+  font-size: 16px;
+  color: #fff;
+  text-transform: uppercase;
+  left: 5%;
+  font-family: 'Exo 2', sans-serif;
+  top: 20%;
+  font-weight: 100;
+}
 .img_kant{
   padding: 3%;
   border: 1px solid #336766;
@@ -20,7 +30,8 @@
   color: #fff;
   text-transform: uppercase;
   width: 100%;
-  margin: auto;
+  height: 100%;
+  /*margin: auto;*/
   font-family: 'Exo 2', sans-serif;
   border: none;
   border-radius: 0;

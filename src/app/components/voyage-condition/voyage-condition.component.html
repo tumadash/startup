@@ -9,13 +9,15 @@
       </div>
       <div class="col-lg-7 col-md-7">
         <div class="row no-margin">
-          <label>Выбрать рейс</label>
-          <select class="dropdown-toggle waves-light buttom_flight" [ngModel]="selectVoyage"
-                  (ngModelChange)="onChange($event)">
-            <option [ngValue]="[voyage]" *ngFor="let voyage of voyages">
-              {{voyage.name}}
-            </option>
-          </select>
+          <div class="col-lg-8  col-md-8 no-padding">
+            <label class="style_lable">Выбрать рейс</label>
+            <select class="dropdown-toggle waves-light buttom_flight" [ngModel]="selectVoyage"
+                    (ngModelChange)="onChange($event)">
+              <option [ngValue]="[voyage]" *ngFor="let voyage of voyages">
+                {{voyage.name}}
+              </option>
+            </select>
+          </div>
           <div class="col-lg-4 no-padding">
             <button class="btn btn-default buttom_exit" (click)="goGeneral()">Назад</button>
           </div>
