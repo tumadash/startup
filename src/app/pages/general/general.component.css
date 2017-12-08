@@ -1,8 +1,15 @@
 @import url('https://fonts.googleapis.com/css?family=Open+Sans');
 @import url('https://fonts.googleapis.com/css?family=Exo+2&subset=cyrillic');
 .bac_grey{
-  width: 100%;
+  background-size: cover;
   background: #E6E6FA;
+}
+@media (min-height: 530px){
+  .bac_grey{
+    background-size: cover;
+    background: #E6E6FA;
+    height:100vh;
+  }
 }
 .buttom_exit{
   background-color: #0c3d67!important;
