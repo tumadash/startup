@@ -15,10 +15,9 @@
   position: relative;
 }
 .style_lable{
-  position: absolute;
   font-size: 16px;
   z-index: 3;
-  color: #fff;
+  color: #545454;
   text-transform: uppercase;
   left: 5%;
   font-family: 'Exo 2', sans-serif;

@@ -17,17 +17,23 @@ export class VoyageConditionComponent implements OnInit {
 
   voyages: Voyage[];
   selectVoyage: Voyage;
-  logs:string;
+  logs: string;
 
 
   ngOnInit() {
     this.logs = "";
     this.serviceComponent.getVoyages()
-      .subscribe(voyages =>
-      {this.voyages = voyages;});
-   }
-  onChange(voyage) {  console.log(voyage);
-    this.logs = voyage[0].info;
+      .subscribe(voyages => {
+        this.voyages = voyages;
+      });
+  }
+
+  onChange(event) {
+    this.voyages.forEach(elem => {
+      if (elem.name === event.target.value) {
+        this.logs = elem.info;
+      }
+    })
   }
 
   goGeneral(): void {

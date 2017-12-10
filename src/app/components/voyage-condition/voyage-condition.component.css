@@ -11,16 +11,6 @@
     height:100vh;
   }
 }
-.style_lable{
-  position: absolute;
-  font-size: 16px;
-  color: #fff;
-  text-transform: uppercase;
-  left: 5%;
-  font-family: 'Exo 2', sans-serif;
-  top: 20%;
-  font-weight: 100;
-}
 .img_kant{
   padding: 3%;
   border: 1px solid #336766;
@@ -72,4 +62,8 @@
 }
 * {
   box-sizing: border-box;
+}
+textarea.blok_log.ng-pristine.ng-valid.ng-touched {
+  font-size: 16px;
+  color: black;
 }
