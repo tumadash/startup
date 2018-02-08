@@ -11,6 +11,8 @@ import {ServiceComponent} from './components/service/service.component';
 import {HttpClientModule} from "@angular/common/http";
 import { MDBBootstrapModule } from 'angular-bootstrap-md';
 import { RippleModule } from 'angular-bootstrap-md/ripple';
+import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
+import { InMemoryDataService } from './in-memory-data.service';
 @NgModule({
   declarations: [
     AppComponent,
@@ -24,7 +26,10 @@ import { RippleModule } from 'angular-bootstrap-md/ripple';
     AppRoutingModule,
     HttpClientModule,
     MDBBootstrapModule.forRoot(),
-    RippleModule.forRoot()
+    RippleModule.forRoot(),
+    HttpClientInMemoryWebApiModule.forRoot(
+      InMemoryDataService, { dataEncapsulation: false }
+    )
   ],
   schemas: [NO_ERRORS_SCHEMA],
   providers: [ServiceComponent],

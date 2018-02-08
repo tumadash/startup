@@ -14,7 +14,7 @@ export class ServiceComponent {
 
 
   constructor( private http: HttpClient) { }
-  private url = 'http://localhost:8081/';
+  private url = 'app/';
   private voyage = 'route';
   private port = 'port';
   private ship = 'ship';

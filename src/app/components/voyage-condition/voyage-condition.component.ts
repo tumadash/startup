@@ -21,7 +21,7 @@ export class VoyageConditionComponent implements OnInit {
 
 
   ngOnInit() {
-    this.logs = "";
+    this.logs = '';
     this.serviceComponent.getVoyages()
       .subscribe(voyages => {
         this.voyages = voyages;
@@ -33,7 +33,7 @@ export class VoyageConditionComponent implements OnInit {
       if (elem.name === event.target.value) {
         this.logs = elem.info;
       }
-    })
+    });
   }
 
   goGeneral(): void {

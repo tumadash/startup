@@ -48,7 +48,9 @@ export class GeneralComponent implements OnInit {
     this.serviceComponent.getPorts()
       .subscribe(ports => this.ports = ports);
     this.serviceComponent.getShips()
-      .subscribe(ships => this.ships = ships);
+      .subscribe(ships => {
+        this.ships = ships;
+      });
   }
 
   logout(): void {
