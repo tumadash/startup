@@ -11,6 +11,10 @@ import java.io.Serializable;
 public class Port implements Serializable{
     private Long id;
     private String name;
+    public Port (Long id, String name){
+        this.name = name;
+        this.id = id;
+    }
 
     public Long getId() {
         return id;

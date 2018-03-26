@@ -6,10 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import startup.entity.Port;
 
-import java.util.List;
 import java.util.Map;
-
-import static org.hibernate.validator.internal.util.CollectionHelper.newArrayList;
 @Service
 public class PortService {
     @Autowired
@@ -17,9 +14,11 @@ public class PortService {
 
 
     public Long createPort(Port port) {
-        IMap<Long, Port> map = hazelcastClient.getMap("port");
+        IMap<String, Port> map = hazelcastClient.getMap("port");
+//        HazelcastWorker w = new HazelcastWorker(Constants.CASSANDRA_MAP_STORE);
+//        w.addPort("1000", new Port(new String(1000), "Da"));
         long startTime = System.currentTimeMillis();
-        map.put(port.getId(), port);
+        map.put(port.getId().toString(), port);
         System.out.println("1 запись " + (System.currentTimeMillis() - startTime));
 //        List<Port> list = hazelcastClient.getList( "port" );
 //        list.add(port);
