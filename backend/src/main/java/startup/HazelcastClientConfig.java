@@ -6,6 +6,9 @@ import com.hazelcast.client.HazelcastClient;
 import com.hazelcast.client.config.ClientConfig;
 import com.hazelcast.client.config.XmlClientConfigBuilder;
 import com.hazelcast.core.HazelcastInstance;
+import com.hazelcast.spark.connector.HazelcastSparkContext;
+import org.apache.spark.SparkConf;
+import org.apache.spark.api.java.JavaSparkContext;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import startup.entity.Port;
@@ -43,5 +46,17 @@ public class HazelcastClientConfig {
         clientConfig.setProperties(properties);
         HazelcastInstance hazelcastInstance=  HazelcastClient.newHazelcastClient(clientConfig);
         return hazelcastInstance;
+    }
+    @Bean
+    public HazelcastSparkContext getSpark(){
+        System.setProperty("hadoop.home.dir", "E:\\Дашина работа АСЭ\\");
+        SparkConf conf = new SparkConf()
+                .setMaster("local[2]")
+                .setAppName("Create RDD From Hazelcast")
+                .set("hazelcast.server.addresses", "127.0.0.1:5701")
+                .set("spark.driver.host", "127.0.0.1");
+
+        JavaSparkContext sparkContext = new JavaSparkContext(conf);
+        return new HazelcastSparkContext(sparkContext);
     }
 }
