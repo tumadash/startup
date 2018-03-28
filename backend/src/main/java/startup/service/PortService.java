@@ -25,7 +25,8 @@ public class PortService {
         System.out.println("1 запись " + (System.currentTimeMillis() - startTime));
         return port.getId();
     }
-
+    //важно! Если в базе уже есть записи, то и их id будет тоже считать, т.е например если в базе 100 записей, а size=10,
+    // то среднее будет от всех 100
     public void run(int size) {
         //заполнили базу тестовыми данными
         fillHazelcastMapWithPorts(size);

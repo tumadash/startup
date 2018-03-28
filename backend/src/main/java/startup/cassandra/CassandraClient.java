@@ -87,7 +87,7 @@ public class CassandraClient implements HazelcastDao<Port> {
     public List<Port> findAll(Collection<String> ids) {
         //Transform collection into a string
         final String filters = String.join(",", ids.stream().
-                map((id) -> "'" + id + "'").collect(Collectors.toList()));
+                map((id) ->  id ).collect(Collectors.toList()));
 
 
         String query = //
