@@ -14,15 +14,13 @@ package startup.cassandra;
 
 public class Constants {
 
-  public static final String POSTGRES_MAP_STORE = "postgres-map-store";
+  //имя map в Hazelcast
   public static final String CASSANDRA_MAP_STORE = "port";
-
+  //Keyspace в cassandra
   public static final String CASSANDRA_KEYSPACE = "example";
+  //имя таблицы в cassandra
   public static final String CASSANDRA_TABLE_NAME = "ports";
   public static final String CASSANDRA_KEYSPACE_TABLE_NAME = CASSANDRA_KEYSPACE
       + "." + CASSANDRA_TABLE_NAME;
-
-//  public static final String HC_GROUP_NAME = "test-group";
-//  public static final String HC_GROUP_PASSWORD = "test";
   public static final int HC_PORT = 5701;
 }

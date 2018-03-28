@@ -27,15 +27,20 @@ public class PortService {
     }
 
     public void run(int size) {
+        //заполнили базу тестовыми данными
         fillHazelcastMapWithPorts(size);
-        HazelcastJavaRDD<Long, Port> usersRdd = hazelcastSparkContext.fromHazelcastMap("port");
-
+        //загружаем данные из map Hazelcast в HazelcastJavaRDD (тип данных для Spark)
+        HazelcastJavaRDD<Long, Port> portsRdd = hazelcastSparkContext.fromHazelcastMap("port");
+        //передаем в СЕРЕАЛИЗУЕМЫЙ сервис. Важно! Если он будет несереализуемый, то Spark ругнется на это
         startup.service.Service service = new startup.service.Service();
-        service.run(usersRdd);
+        service.run(portsRdd);
     }
 
+    //функция, которая пишет в map Hazelcast столько записей, сколько хочет юзер - int size
     private void fillHazelcastMapWithPorts(int size) {
+        //берем map
         IMap<Long, Port> ports = hazelcastClient.getMap("port");
+        // в цикле пишем в него записи id порта и сам объект порта
         for (int i = 0; i < size; i++) {
             String name = "port-" + i;
             Port port = new Port(new Long(i), name);

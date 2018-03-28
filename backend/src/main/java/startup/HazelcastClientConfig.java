@@ -20,8 +20,18 @@ import java.util.Properties;
 @Configuration
 public class HazelcastClientConfig {
     private CassandraClient dao;
+
+    /***
+     * Bean создания кластера и клиента Hazelcast, который будет подключаться к кластеру.
+     * Первоначально была разработана клиент-серверная архитекутра
+     * где сервер(кластер) запускается отдельно от приложения. После возникновения пробелм было решено перейти на встроенную архитектуру
+     * и теперь кластер Hazelcast создается в приложении. Думаю можно вернутся обратно к отдельному кластеру.
+     * @return клиент, который подключается к кластеру
+     * @throws IOException
+     */
     @Bean
     public HazelcastInstance getHazelcastClientInstance() throws IOException {
+        //создадим клиент cassandra, который будет работать с ней напрямую
         dao = new CassandraClient();
         dao.initialize(System.getProperty("cassandra.ip"));
         // creating data keyspace and table
@@ -33,23 +43,31 @@ public class HazelcastClientConfig {
                 + Constants.CASSANDRA_KEYSPACE_TABLE_NAME + " ("
                 + "id bigint PRIMARY KEY," + "name text" + ");");
 
+        //создадим MapStore, которую будет использовать кластер Hazelcast для синхронизации с cassandra
         CassandraMapStore mapStore = new CassandraMapStore(String.class, Port.class, dao);
 
-        // starting 3 instances of hazelcast
+        // передадим MapStore и имя map, по которой будет производиться синхронизация, в класс, создающий кластер Hazelcast
         MyHazelcastInstance store = new MyHazelcastInstance(mapStore, Constants.CASSANDRA_MAP_STORE);
 
-//
+        //создадим клиент Hazelcast, который будет подлючаться к кластеру
         ClientConfig clientConfig = new ClientConfig();
         clientConfig = new XmlClientConfigBuilder("hazelcast-client-config.xml").build();
         Properties properties = new Properties();
         properties.put("hazelcast.client.statistics.enabled", true);
         clientConfig.setProperties(properties);
-        HazelcastInstance hazelcastInstance=  HazelcastClient.newHazelcastClient(clientConfig);
+        HazelcastInstance hazelcastInstance =  HazelcastClient.newHazelcastClient(clientConfig);
         return hazelcastInstance;
     }
+
+    /***
+     * Bean создания Spark, который имеет доступ к данным Hazelcast
+     * @return
+     */
     @Bean
     public HazelcastSparkContext getSpark(){
+        //настройки hadoop
         System.setProperty("hadoop.home.dir", "E:\\Дашина работа АСЭ\\");
+        //настройки spark
         SparkConf conf = new SparkConf()
                 .setMaster("local[2]")
                 .setAppName("Create RDD From Hazelcast")

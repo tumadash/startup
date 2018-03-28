@@ -36,6 +36,7 @@ public class MyHazelcastInstance {
     this.storeType = storeType;
     log.info("Creating Hazelcast CEP instance..");
     instanceName = UUID.randomUUID().toString();
+    //создание кластера
     Hazelcast.newHazelcastInstance(getConfig());
     log.info("Created CEP instance.");
   }
