@@ -11,8 +11,11 @@ import org.apache.spark.SparkConf;
 import org.apache.spark.api.java.JavaSparkContext;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import startup.cassandra.CassandraClient;
+import startup.cassandra.CassandraMapStore;
+import startup.cassandra.Constants;
+import startup.cassandra.MyHazelcastInstance;
 import startup.entity.Port;
-import startup.cassandra.*;
 
 import java.io.IOException;
 import java.util.Properties;
@@ -33,7 +36,7 @@ public class HazelcastClientConfig {
     public HazelcastInstance getHazelcastClientInstance() throws IOException {
         //создадим клиент cassandra, который будет работать с ней напрямую
         dao = new CassandraClient();
-        dao.initialize(System.getProperty("cassandra.ip"));
+        dao.initialize("127.0.0.1");
         // creating data keyspace and table
         final Session session = dao.connect();
         session.execute("CREATE KEYSPACE IF NOT EXISTS "

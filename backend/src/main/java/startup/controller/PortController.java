@@ -36,8 +36,7 @@ public class PortController {
     }
     @RequestMapping(value = "run/{size}", method = GET)
     public ResponseEntity<Object> run(@PathVariable int size) {
-        portService.run(size);
-        return new ResponseEntity(HttpStatus.OK);
+        return new ResponseEntity(portService.run(size),HttpStatus.OK);
     }
 
 

@@ -27,14 +27,14 @@ public class PortService {
     }
     //важно! Если в базе уже есть записи, то и их id будет тоже считать, т.е например если в базе 100 записей, а size=10,
     // то среднее будет от всех 100
-    public void run(int size) {
+    public Double run(int size) {
         //заполнили базу тестовыми данными
         fillHazelcastMapWithPorts(size);
         //загружаем данные из map Hazelcast в HazelcastJavaRDD (тип данных для Spark)
         HazelcastJavaRDD<Long, Port> portsRdd = hazelcastSparkContext.fromHazelcastMap("port");
         //передаем в СЕРЕАЛИЗУЕМЫЙ сервис. Важно! Если он будет несереализуемый, то Spark ругнется на это
         startup.service.Service service = new startup.service.Service();
-        service.run(portsRdd);
+        return service.run(portsRdd);
     }
 
     //функция, которая пишет в map Hazelcast столько записей, сколько хочет юзер - int size

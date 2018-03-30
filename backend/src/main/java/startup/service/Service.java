@@ -15,10 +15,10 @@ import static java.util.Collections.singletonList;
 //сервис для запуска тасков Spark
 public class Service implements Serializable {
     //функция, которая берет все id и вычисляет среднее значение
-    public void run(HazelcastJavaRDD<Long, Port> portsRdd) {
+    public Double run(HazelcastJavaRDD<Long, Port> portsRdd) {
         Double average = portsRdd.flatMapToDouble(
                 (DoubleFlatMapFunction<Tuple2<Long, Port>>) entry -> singletonList((double) entry._2().getId()).iterator()
         ).mean();
-        System.out.println("Среднее значение id = " + average);
+        return average;
     }
 }
