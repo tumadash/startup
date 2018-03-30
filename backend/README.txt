@@ -20,3 +20,4 @@ fillHazelcastMapWithPorts в PortService, далее с помощью Spark в�
 2. Взять из папки target файл startup-backend-1.0-SNAPSHOT.jar и перенести его в spark-2.3.0-bin-hadoop2.7\bin
 3. В папке bin в командной строки запустить "spark-submit --class startup.Application --master local startup-backend-1.0-SNAPSHOT.jar"
 все запросы остаются теми же
+Если Spark ругается на guava - в папке spark-2.3.0-bin-hadoop2.7\jars заменить старую guava на guava-19.0.
