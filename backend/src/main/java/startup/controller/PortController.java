@@ -30,7 +30,7 @@ public class PortController {
         return new ResponseEntity<>(portService.createPort(port), HttpStatus.OK);
     }
 
-       @RequestMapping(method = GET)
+    @RequestMapping(method = GET)
     public ResponseEntity<Map<Long, Port>> getAllPort() {
         return new ResponseEntity<>(portService.getAllPort(), HttpStatus.OK);
     }
@@ -49,5 +49,9 @@ public class PortController {
     public ResponseEntity<Object> deletePort(@PathVariable Long id) {
         portService.deletePort(id);
         return new ResponseEntity(HttpStatus.OK);
+    }
+    @RequestMapping(value = "sql", method = POST)
+    public ResponseEntity<Object> getPortWithQuery(@RequestBody String query) {
+        return new ResponseEntity(portService.getPortWithQuery(query), HttpStatus.OK);
     }
 }

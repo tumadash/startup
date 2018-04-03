@@ -21,3 +21,13 @@ fillHazelcastMapWithPorts в PortService, далее с помощью Spark в�
 3. В папке bin в командной строки запустить "spark-submit --class startup.Application --master local startup-backend-1.0-SNAPSHOT.jar"
 все запросы остаются теми же
 Если Spark ругается на guava - в папке spark-2.3.0-bin-hadoop2.7\jars заменить старую guava на guava-19.0.
+
+SQL
+Функция getPortWithQuery позволяет получить данные коллекции port путем использования SQL.
+Для этого выполняется метод POST, URL=http://localhost:8080/port/sql
+примеры RequestBody:
+__key like 2% - ключ начинается с цифры 2
+name = 'port-21' - вернуть порт с именем port-21
+id > 21 - все id выше 21
+все примеры на сайте
+http://docs.hazelcast.org/docs/latest-development/manual/html/Distributed_Query/How_Distributed_Query_Works/Querying_with_SQL.html

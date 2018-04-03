@@ -2,12 +2,15 @@ package startup.service;
 
 import com.hazelcast.core.HazelcastInstance;
 import com.hazelcast.core.IMap;
+import com.hazelcast.query.Predicate;
+import com.hazelcast.query.SqlPredicate;
 import com.hazelcast.spark.connector.HazelcastSparkContext;
 import com.hazelcast.spark.connector.rdd.HazelcastJavaRDD;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import startup.entity.Port;
 
+import java.util.Collection;
 import java.util.Map;
 
 @Service
@@ -62,5 +65,11 @@ public class PortService {
     public Map<Long, Port> getAllPort() {
         IMap<Long, Port> map = hazelcastClient.getMap("port");
         return map;
+    }
+
+    public Collection<Port> getPortWithQuery (String query){
+        IMap<Long, Port> map = hazelcastClient.getMap("port");
+        Predicate predicate = new SqlPredicate(query);
+        return map.values(predicate);
     }
 }
