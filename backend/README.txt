@@ -1,7 +1,7 @@
 ВАЖНО
 Перед запуском проверь в файле HazelcastClientConfig
 1)dao.initialize("127.0.0.1") - адрес Cassandra
-2)System.setProperty("hadoop.home.dir", "E:\\Дашина работа АСЭ\\") - местоположение hadoop
+2)System.setProperty("hadoop.home.dir", "") - местоположение hadoop
 3)в hazelcast-client-config.xml адрес кластера Hazelcast(не работает? Поставь 127.0.0.1)
 
 Запуск приложения
